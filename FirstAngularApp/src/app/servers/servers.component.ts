@@ -3,12 +3,14 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-servers',
   templateUrl: './servers.component.html',
-  styleUrls: ['./servers.component.css']
+  styleUrls: [ './servers.component.css' ]
 })
 export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverCreationStatus = 'No Server Created!';
   serverName = 'TestServer';
+  serverCreated = false;
+  Servers = [ 'TestServer', 'TestServer2' ];
 
   constructor() { 
     setTimeout(() => {
@@ -19,6 +21,8 @@ export class ServersComponent implements OnInit {
   ngOnInit() {}
 
   onCreateServer() {
+    this.serverCreated = true;
+    this.Servers.push(this.serverName);
     this.serverCreationStatus = 'Server Created! Name of server: ' + this.serverName
   }
 
